@@ -1,0 +1,16 @@
+{
+  "name": "ep-gulp",
+  "version": "1.0.0",
+  "description": "企业官网优化",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
