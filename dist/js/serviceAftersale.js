@@ -1,1 +1,0 @@
-$(function(){var o=$("#nav").offset().top;$(window).scroll(function(){$(document).scrollTop()>=o?($("#nav").addClass("fixnav"),$("#banner").addClass("new"),$("#nav .logo").addClass("logoNew")):($("#nav").removeClass("fixnav"),$("#banner").removeClass("new"),$("#nav .logo").removeClass("logoNew"))})});
