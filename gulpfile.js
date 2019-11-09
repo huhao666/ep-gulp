@@ -10,13 +10,13 @@ var condition = function(f) {
   return true;
 };
 
-// gulp.task('clean' , function(){
-//   return gulp.src([
-//      'dist', //删除dist整个文件夹
-//      'dist/test/**/*', //删除dist下的test写任意子文件夹里的文件
-//      '!package.json'  //不删除package.json文件
-//     ] ).pipe(gulpclean());
-// });
+gulp.task('clean' , function(){
+  return gulp.src([
+     'dist', //删除dist整个文件夹
+     'dist/test/**/*', //删除dist下的test写任意子文件夹里的文件
+     '!package.json'  //不删除package.json文件
+    ] ).pipe(gulpclean());
+});
 
 gulp.task('html', function () {
   return gulp.src(["src/*.html","src/favicon.ico"])
@@ -24,7 +24,7 @@ gulp.task('html', function () {
 })
 
 //压缩js文件
-gulp.task("jsmin", function() {
+gulp.task("jsminA", function() {
   //找到文件
   return gulp.src("src/js/*.js") 
     //压缩文件
@@ -32,6 +32,11 @@ gulp.task("jsmin", function() {
     //保存压缩后的文件 
     .pipe(gulp.dest("dist/js"));
 });
+//拷贝不需要处理js的文件
+gulp.task('jsmin',['jsminA'], function () {
+  return gulp.src('src/js/layer/**')
+  .pipe(gulp.dest("dist/js/layer"));
+})
  
 // gulp.task('image', function () {
 //   return gulp.src(['src/img/**/*','!src/img/huodong/video'])
@@ -39,10 +44,6 @@ gulp.task("jsmin", function() {
 //     .pipe(gulp.dest('dist/img'))
 // })
 
-//拷贝不需要处理的文件
-// gulp.task('copy', function () {
-//   return gulp.src('src/js/layer/**')
-//   .pipe(gulp.dest("dist/js/layer"));
-// })
 
-gulp.task("default", ["html", "jsmin"]);
+
+gulp.task("build", ["clean","html", "jsmin"]);
