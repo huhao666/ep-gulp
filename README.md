@@ -2,7 +2,8 @@
 
 ## 记录 gulp 压缩js遇到的问题
 
-- gulp 压缩遇到已经压缩过的 min.js 文件无法再继续压缩会报错跳除压缩程序;  
+- ## 压缩js 
+  gulp 压缩遇到已经压缩过的 min.js 文件无法再继续压缩会报错跳除压缩程序;  
   解决方法一：先把压缩过的js文件提前剪切到dist/js文件下;执行完gulp要记得吧dist里的js覆盖原项目js文件夹  
   当然这种手动的方法比较麻烦，使用gulp插件自动化处理更加优雅
   解决方法二：添加gulp-if判断
@@ -45,7 +46,7 @@
   str.includes('Hello', 6) // false
   ```
 
-- 遇到报错
+- ## 遇到运行报错
 
   ```js
     The following tasks did not complete: script
@@ -97,3 +98,7 @@
       .pipe(gulp.dest("dist/js")); 
   });
   ```
+
+- ## 压缩图片报错
+待解决。。。
+暂时拷贝所有原图片  
