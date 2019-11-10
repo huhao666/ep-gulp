@@ -51,6 +51,7 @@
     The following tasks did not complete: script
     Did you forget to signal async completion?
   ```
+  主要原因是一开始装的gulp是gulp4版本，gulp3版本使用原代码就行
 
   原代码：
 
@@ -67,18 +68,32 @@
   });
   ```
 
-  解决方法：
+  解决方法一：
 
   ```js
   //压缩js文件
   gulp.task("script", done => {
     //找到文件
-    gulp
+    gulp 
       .src("js/*.js")
       //压缩文件
       .pipe(uglify())
       //保存压缩后的文件
       .pipe(gulp.dest("dist/js"));
     done();
+  });
+  ```
+
+  解决方法二：
+
+  ```js
+  //压缩js文件
+  gulp.task("script", function() {
+    //找到文件
+    return gulp .src("js/*.js")
+      //压缩文件
+      .pipe(uglify())
+      //保存压缩后的文件
+      .pipe(gulp.dest("dist/js")); 
   });
   ```
